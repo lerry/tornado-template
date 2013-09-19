@@ -1,0 +1,1 @@
+easy_install tornado pygments lerrylib jinja2 torndb requests distribute mysql-python
