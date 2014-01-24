@@ -7,13 +7,13 @@ import platform
 DEBUG = True
 
 HOST = "lerry.me"
-PORT = 80
+PORT = 8088
 
 MYSQL_HOST = '127.0.0.1'
 MYSQL_PORT = 3306
-MYSQL_USER = 'work'
-MYSQL_PASSWD = 'pw'
-MYSQL_DB = 'cheshang_dev'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = 'root'
+MYSQL_DB = 'test'
 
 MEMCACHED_ADDR = ['127.0.0.1:11211']
 
