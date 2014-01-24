@@ -66,6 +66,7 @@ class View(tornado.web.RequestHandler):
         kwargs.update(FUNCTIONS)
         kwargs['_xsrf'] = _xsrf
         kwargs['request'] = self.request
+        kwargs['background_url'] = FUNCTIONS['background_url']()
         if not filename:
             filename = '%s/%s.html' % (
                 self.__module__[5:].replace('.', '/').lower(),
