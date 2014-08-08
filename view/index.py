@@ -1,16 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import _envi
-import time
 from view._route import route
-from view._base import View, LoginView, AdminView
+from view._base import View, LoginView
 
 PAGE_LIMIT = 20
 
 @route('/')
 class Index(View):
     def get(self):
-        self.render()
+        self.finish({"name": "lerry"})
 
 
 
