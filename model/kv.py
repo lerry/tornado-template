@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import _envi
 import hashlib
 from model.connect import db, mc
 
 class Kv(object):
     def __init__(self, table_name):
         self.table_name = table_name
-        self.prefix = 'mc_%s_%%s' % table_name 
+        self.prefix = 'mc_%s_%%s' % table_name
 
     def set(self, id, value):
         mc_key = self.prefix % id
@@ -31,7 +30,7 @@ class Kv(object):
         return result
 
     def id_by_value(self, value):
-        _hash = hashlib.md5(value).hexdigest()
+        _hash = hashlib.md5(value.encode("utf-8")).hexdigest()
         mc_key = self.prefix % _hash
         id = mc.get(mc_key)
         if id is None:
@@ -57,6 +56,6 @@ if __name__ == '__main__':
     pass
     s = Kv('Session')
     #print s.save('asdfg')
-    print s.id_by_value('asdfg')
-    print s.set(6, 'sbsafqwfqwfb')
-    print s.get(6)
+    print(s.id_by_value('asdfg'))
+    print(s.set(6, 'sbsafqwfqwfb'))
+    print(s.get(6))

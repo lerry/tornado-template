@@ -1,18 +1,23 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import _envi
-import time
+import json
 from view._route import route
-from view._base import View, LoginView, AdminView
-
-PAGE_LIMIT = 20
+from view._base import View, LoginView
+from tornado.web import StaticFileHandler
 
 @route('/')
-class Index(View):
+class _(View):
     def get(self):
-        self.render()
+        self.finish({"hello":"world"})
 
-
+@route('/xxx')
+class _(View):
+    def get(self):
+        self.set_header('Content-Type', 'text/html; charset=UTF-8')
+        fp = open("dist/index.html", "rb")
+        for chunk in fp.read():
+            self.write(chunk)
+        self.flush()
 
 if __name__ == '__main__':
     pass
